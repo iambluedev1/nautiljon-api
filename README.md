@@ -18,12 +18,15 @@ ou
 
 L'api se compose d'un ensemble de 'modules' reprenant les différentes parties du site web. 
 
-###Modules
+### Modules
 - [Evènements](#evènements)
+- [Flash Infos](#flash-infos)
+- [Sélection du moment](#sélection-du-moment)
+- [Critiques](#critiques)
 
-####Evènements
+#### Evènements
 
-#####Lister les évènements passés et futurs
+##### Lister les évènements passés et futurs
 GET /events/:type
 
 Paramètres :
