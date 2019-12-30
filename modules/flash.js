@@ -63,7 +63,7 @@ router.get("/flash/:id(\\d+)", cache('1 day'), function (req, res) {
                 res.json({
                     id: parseInt(req.params.id),
                     title: $(div).find("h3").text().trim(),
-                    at: $(div).find(".c_head").text().replace("Par", "").trim(),
+                    at: $(div).find(".c_head").text().replace("Par", "").replace("le", "").trim(),
                     author: {
                         username: $(div).find(".c_avatar img").attr("title").trim(),
                         avatar: $(div).find(".c_avatar img").attr("src"),
@@ -122,7 +122,7 @@ router.get("/flashes", function (req, res) {
                     list.push({
                         id: id,
                         title: $(div).find("h3").text().trim(),
-                        at: $(div).find(".c_head").text().replace("Par", "").trim(),
+                        at: $(div).find(".c_head").text().replace("Par", "").replace("le", "").trim(),
                         author: {
                             username: $(div).find(".c_avatar img").attr("title").trim(),
                             avatar: $(div).find(".c_avatar img").attr("src"),
@@ -138,7 +138,7 @@ router.get("/flashes", function (req, res) {
                     list.push({
                         id: id,
                         title: $(div).find("h3").text().trim(),
-                        at: $(div).find(".c_head").text().replace("Par", "").trim(),
+                        at: $(div).find(".c_head").text().replace("Par", "").replace("le", "").trim(),
                         item: $(firstA).attr("title").trim()
                     })
                 }
