@@ -37,15 +37,15 @@ RÉPONSE : json
 [
 	...
 	{
-		  "id": integer,
-		  "at": date sous la forme dd/mm/yyyy,
-		  "name": string,
-		  "country": string,
-		  "city": string,
-		  "place": string,
-		  "link": null ou {
-			"title": string ,
-			"href": string
+		  "id": "integer",
+		  "at": "date sous la forme dd/mm/yyyy",
+		  "name": "string",
+		  "country": "string",
+		  "city": "string",
+		  "place": "string",
+		  "link": "null" ou {
+			"title": "string" ,
+			"href": "string"
 		  }
 	}
 	...
@@ -89,9 +89,9 @@ GET /event/:id
 [
 	...
 	{
-        "slug":  string,
-        "name": string,
-        "picture": string
+        "slug":  "string",
+        "name": "string",
+        "picture": "string"
       }
 	  ...
 ]
@@ -101,79 +101,79 @@ REPONSE : json
 
 ```json
 {
-	"id": integer,
-    "title": string,
-    "from": date sous la forme dd/mm/yyyy,
-    "to": date sous la forme dd/mm/yyyy,
-    "city": string,
-    "place": string,
-    "country": string,
+	"id": "integer",
+    "title": "string",
+    "from": "date sous la forme dd/mm/yyyy",
+    "to": "date sous la forme dd/mm/yyyy",
+    "city": "string",
+    "place": "string",
+    "country": "string",
     "description": {
-      "text": string,
-      "html": string
+      "text": "string",
+      "html": "string"
     },
-    "website": string,
+    "website": "string",
     "personalities": [
       {
-        "slug": string,
-        "name": string,
-        "picture": string
+        "slug": "string",
+        "name": "string",
+        "picture": "string"
       },
       ...
     ],
     "populate": {
-      "subs": boolean //true si activé,
-      "shortnews": boolean //true si activé,
-      "news": boolean //true si activé,
-      "stats": boolean //true si activé,
-      "comments": boolean //true si activé
+      "subs": "boolean", //true si activé,
+      "shortnews": "boolean", //true si activé,
+      "news": "boolean", //true si activé,
+      "stats": "boolean", //true si activé,
+      "comments": "boolean", //true si activé
     },
     "subs": [ //optionnel
       {
-        "slug": string,
-        "username": string
+        "slug": "string",
+        "username": "string"
       },
       ...
     ],
     "shortnews": [ //optionnel
       {
-        "at": date sous la forme dd/mm/yyyy,
-        "picture": string,
-        "id": integer,
-        "title": string
+        "at": "date sous la forme dd/mm/yyyy",
+        "picture": "string",
+        "id": "integer",
+        "title": "string"
       },
       ...
     ],
     "news": [  //optionnel
       {
-        "at": date sous la forme dd/mm/yyyy,
-        "picture": string,
-        "id": integer,
-        "title": string
+        "at": "date sous la forme dd/mm/yyyy",
+        "picture": "string",
+        "id": "integer",
+        "title": "string"
       },
       ...
     ],
     "stats": {  //optionnel
-      "note": string sous la forme note/10,
-      "count": integer,
+      "note": "string sous la forme note/10",
+      "count": "integer",
       "percentage": {
-        "male": integer,
-        "female": integer
+        "male": "integer",
+        "female": "integer"
       }
     },
     "comments": [  //optionnel
       {
-        "id": integer,
-        "at": date et heure sous la forme dd/mm/yyyy à hh:mm,
+        "id": "integer",
+        "at": "date et heure sous la forme dd/mm/yyyy à hh:mm",
         "author": {
-          "username": string,
-          "avatar": string,
-          "status": string (peut être null),
-          "slug": string
+          "username": "string",
+          "avatar": "string",
+          "status": "string (peut être null)",
+          "slug": "string"
         },
         "content": {
-          "text": string,
-          "html": string
+          "text": "string",
+          "html": "string"
         }
       },
       ...
@@ -191,10 +191,10 @@ REPONSE : json
 [
 	...
 	{
-      "at": date sous la forme jj/mm,
-      "title": string,
-      "item": string,
-      "id": integer
+      "at": "date sous la forme jj/mm",
+      "title": "string",
+      "item": "string",
+      "id": "integer"
     }
 	...
 ]
@@ -214,10 +214,10 @@ Si le paramètre full est à false :
 [
 	...
 	{
-        "id": integer,
-        "title": string,
-        "at": date et heure sous la forme dd/mm/yyyy à hh:mm,
-        "item": string
+        "id": "integer",
+        "title": "string",
+        "at": "date et heure sous la forme dd/mm/yyyy à hh:mm",
+        "item": "string"
       }
 	  ...
 ]
@@ -228,18 +228,18 @@ Sinon :
 [
 	...
 	{
-        "id": integer,
-        "title": string,
-        "at": date et heure sous la forme dd/mm/yyyy à hh:mm,
+        "id": "integer",
+        "title": "string",
+        "at": "date et heure sous la forme dd/mm/yyyy à hh:mm",
         "author": {
-          "username": string,
-          "avatar": string,
-          "status": string ou null,
-          "slug": string
+          "username": "string",
+          "avatar": "string",
+          "status": "string ou null",
+          "slug": "string"
         },
         "content": {
-          "text": string,
-          "html": string
+          "text": "string",
+          "html": "string"
         }
       }
 	  ...
@@ -250,13 +250,13 @@ Des informations supplémentaires sont disponible :
 ```json
 	"list": [...],
 	"params": {
-      "page": integer,
-      "type": string (full ou small suivant si le paramètre full est à true ou pas),
-      "offset": integer,
-      "limit": integer,
-      "countPages": integer,
-      "countTotalItems": integer,
-      "countItemsOnThisPage": integer
+      "page": "integer",
+      "type": "string (full ou small suivant si le paramètre full est à true ou pas)",
+      "offset": "integer",
+      "limit": "integer",
+      "countPages": "integer",
+      "countTotalItems": "integer",
+      "countItemsOnThisPage": "integer"
     }
 ```
 ##### Afficher les détails d'un flash info
@@ -269,18 +269,18 @@ GET /flash/:id
 REPONSE : json
 ```json
 {
-	"id": integer,
-	"title": string,
-	"at": date et heure sous la forme dd/mm/yyyy à hh:mm,
+	"id": "integer",
+	"title": "string",
+	"at": "date et heure sous la forme dd/mm/yyyy à hh:mm",
 	"author": {
-		"username": string,
-		"avatar": string,
-		"status": string ou null,
-		"slug": string
+		"username": "string",
+		"avatar": "string",
+		"status": "string ou null",
+		"slug": "string"
 	},
 	"content": {
-		"text": string,
-		"html": string
+		"text": "string",
+		"html": "string"
 	}
 }
 ```
@@ -311,11 +311,11 @@ REPONSE : json
 [
 	...
 	{
-        "type":  string,
-        "title": string,
-        "link": string,
-        "picture": string,
-        "added_at": date et heure sous la forme dd/mm/yyyy à hh:mm
+        "type":  "string",
+        "title": "string",
+        "link": "string",
+        "picture": "string",
+        "added_at": "date et heure sous la forme dd/mm/yyyy à hh:mm"
       }
 	  ...
 ]
@@ -332,10 +332,10 @@ REPONSE : json
 [
 	...
 	{
-      "id": integer,
-      "item": string,
-      "type": string,
-      "picture": string
+      "id": "integer",
+      "item": "string",
+      "type": "string",
+      "picture": "string"
     }
 	...
 ]
@@ -375,23 +375,23 @@ Si le paramètre full est à true :
 [
 	...
 	{
-        "id": integer,
-        "title": string,
-        "note": string sous la forme note/10,
-        "at": date et heure sous la forme dd/mm/yyyy à hh:mm,
+        "id": "integer",
+        "title": "string",
+        "note": "string sous la forme note/10",
+        "at": "date et heure sous la forme dd/mm/yyyy à hh:mm",
         "author": {
-          "username": string,
-          "slug": string,
-          "countReviews": integer
+          "username": "string",
+          "slug": "string",
+          "countReviews": "integer"
         },
         "content": {
-          "text": string,
-          "html": string
+          "text": "string",
+          "html": "string"
         },
         "item": {
-          "title": string,
-          "type": string,
-          "path": string
+          "title": "string",
+          "type": "string",
+          "path": "string"
         }
       }
 	  ...
@@ -403,10 +403,10 @@ Sinon :
 [
 	...
 	{
-        "id": integer,
-        "item": string,
-        "type": string,
-        "picture": string
+        "id": "integer",
+        "item": "string",
+        "type": "string",
+        "picture": "string"
       }
 	  ...
 ]
@@ -415,13 +415,13 @@ Des informations supplémentaires sont disponible :
 ```json
 	"list": [...],
 	"params": {
-      "page": integer,
-      "type": string (full ou small suivant si le paramètre full est à true ou pas),
-      "offset": integer,
-      "limit": integer,
-      "countPages": integer,
-      "countTotalItems": integer,
-      "countItemsOnThisPage": integer,
+      "page": "integer",
+      "type": "string (full ou small suivant si le paramètre full est à true ou pas)",
+      "offset": "integer",
+      "limit": "integer",
+      "countPages": "integer",
+      "countTotalItems": "integer",
+      "countItemsOnThisPage": "integer",
 	  "types": [ ] //liste des types supportés
     }
 ```
@@ -436,23 +436,23 @@ GET /review/:id
 REPONSE : json
 ```json
 {
-        "id": integer,
-        "title": string,
-        "note": string sous la forme note/10,
-        "at": date et heure sous la forme dd/mm/yyyy à hh:mm,
+        "id": "integer",
+        "title": "string",
+        "note": "string sous la forme note/10",
+        "at": "date et heure sous la forme dd/mm/yyyy à hh:mm",
         "author": {
-          "username": string,
-          "slug": string,
-          "countReviews": integer
+          "username": "string",
+          "slug": "string",
+          "countReviews": "integer"
         },
         "content": {
-          "text": string,
-          "html": string
+          "text": "string",
+          "html": "string"
         },
         "item": {
-          "title": string,
-          "type": string,
-          "path": string
+          "title": "string",
+          "type": "string",
+          "path": "string"
         }
 }
 ```
