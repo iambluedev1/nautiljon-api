@@ -77,6 +77,7 @@ app.use(require('./modules/flash'));
 app.use(require('./modules/promoted-selection')); 
 app.use(require('./modules/reviews')); 
 app.use(require('./modules/events')); 
+app.use(require('./modules/concerts')); 
 
 app.get('*', function(req, res){
     res.status(404).json({
