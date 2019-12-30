@@ -96,7 +96,9 @@ router.get("/event/:id(\\d+)", cache('1 day'), function (req, res) {
                 var i = 1;
 
                 var els = $(div).find("td");
-                var tmp = {}
+                var tmp = {
+                    id: parseInt(req.params.id)
+                }
 
                 els.each((i, elem) => {
                     var name = string_to_slug($($(div).find("th")[i]).text().trim(), '_');
@@ -217,6 +219,7 @@ router.get("/event/:id(\\d+)", cache('1 day'), function (req, res) {
                     })
 
                 }
+
 
                 res.json(tmp)
             } catch (e) {
