@@ -57,7 +57,7 @@ const COUNTRIES = [
         slug: "pays-bas-27"
     },
     {
-        code: "luxenbourg",
+        code: "luxembourg",
         slug: "luxembourg-23"
     },
     {
@@ -81,7 +81,6 @@ const COUNTRIES = [
         slug: "autre-40"
     },
 ]
-
 
 const translations = {
     "date": "at",
@@ -194,12 +193,13 @@ router.get("/concert/:id(\\d+)", cache('1 day'), function (req, res) {
 
                 var els = $(div).find("td");
                 var tmp = {
-                    id: parseInt(req.params.id)
+                    id: parseInt(req.params.id),
+                    title: ''
                 }
 
                 els.each((i, elem) => {
                     var name = string_to_slug($($(div).find("th")[i]).text().trim(), '_');
-                    if (name == "information") {
+                    if (name == "informations") {
                         tmp[translations[name] || name] = {
                             text: $(elem).text().trim(),
                             html: $(elem).html().trim()
@@ -214,6 +214,14 @@ router.get("/concert/:id(\\d+)", cache('1 day'), function (req, res) {
                     else
                         tmp[translations[name] || name] = $(elem).text().trim();
                 });
+
+                tmp.title = $("meta[name='twitter:description']").attr("content").split(",")[1]
+                    .replace(tmp.city, "")
+                    .replace(tmp.country, "")
+                    .replace("()", "")
+                    .trim()
+
+                if(tmp.title.endsWith("-")) tmp.title = tmp.title.substring(0, tmp.title.length - 1).trim()
 
                 tmp.populate = {
                     subs: false,
