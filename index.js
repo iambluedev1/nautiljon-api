@@ -62,7 +62,7 @@ app.use(function (req, res, next) {
                 maintainers: pjson.maintainers,
                 licenses: pjson.licenses,
                 homepage: pjson.homepage,
-                github: 'https://github.com/iambluedev1/'
+                github: 'https://github.com/iambluedev1/nautiljon-api'
             }
         });
     };
