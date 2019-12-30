@@ -23,6 +23,7 @@ L'api se compose d'un ensemble de 'modules' reprenant les différentes parties d
 - [Flash Infos](#flash-infos)
 - [Sélection du moment](#sélection-du-moment)
 - [Critiques](#critiques)
+- [Concerts](#concerts)
 
 #### Evènements
 
@@ -457,5 +458,176 @@ REPONSE : json
           "type": "string",
           "path": "string"
         }
+}
+```
+
+#### Concerts
+
+##### Lister les concerts passés et futurs
+GET /concerts/:type
+
+Paramètres :
+
+|  nom du paramètre  |  type | description |
+| ------------ | ------------ | ------------ |
+| type  |  string | prend soit la valeur **incoming** soit **past** suivant si vous souhaitez afficher les évènements passés ou futurs |
+| country (optionnel)  |  string | restreindre l'affichage a un pays seulement, par défaut sa valeur est **all** |
+
+|  Valeurs possible de country  |
+| ------------ |
+|  all |
+|  japon |
+| coree_du_sud  |
+| taiwan  |
+|  france |
+|  belgique |
+|  royaume_uni |   
+|  allemagne |   
+|  suisse |   
+|  espagne |    
+| italie  |   
+| pays_bas  | 
+|  luxembourg |
+|  canada |
+|  portugal |
+|  finlande |
+|  russie |
+|  autre |
+
+RÉPONSE : json
+```json
+[
+  ...
+  {
+    "id": "integer",
+    "at": "date sous la forme dd/mm/yyyy",
+    "artist": "string",
+    "name": "string"
+  },
+  ...
+]
+```
+
+##### Afficher détail d'un concert
+GET /concert/:id
+
+|  nom du paramètre  |  type | description |
+| ------------ | ------------ | ------------ |
+| id  |  integer | id du concert |
+| populate (optionnel)*  |  string | élements à ajouter à la réponse, par défaut sa valeur est à all |
+
+***** paramètre à envoyé en GET,  plusieurs élements peuvent être ajoutés (vous pouvez utilisez plusieurs modes en les séparant par une virgule ex: **stubs,comments** ) : 
+- subs (affichage des inscrits au concert)
+- shortnews (affichage des brèves du concert) 
+- news (affichage de l'actualité du concert)
+- comments (affichage des commentaires du concert)
+- stats (affichage des statistiques du concert)
+- all (valeur par défaut, active tous les élèments)
+
+|  Valeurs retournées  | nom de la clé  |  |
+| ------------ | ------------ | ------------ |
+| titre  |  title  | |
+| date | at  | |
+| ville  | city  | |
+| lieu  |  place | |
+| pays  | country  | |
+| prix  |  price | |
+| adresse | address | |
+| heure |  scheduled_at | |
+| information | information | * retourne les informations du concert au format text et html|
+| artiste | artist | * retourne un object de l'artiste présent |
+
+*** la clé information retourne un tableau sous la forme de 
+```json
+{
+  "text": "string",
+  "html": "string"
+}
+```
+
+*** la clé artist retourne un tableau sous la forme de 
+```json
+{
+  "name": "string",
+  "slug": "string"
+}
+```
+
+REPONSE : json
+
+```json
+{
+  "id": "integer",
+  "title": "string",
+  "at": "date sous la forme dd/mm/yyyy",
+  "city": "string",
+  "place": "string",
+  "country": "string",
+  "address": "string",
+  "information": {
+    "text": "string",
+    "html": "string"
+  },
+  "artist": {
+    "name": "string",
+    "slug": "string"
+  },
+  "populate": {
+    "subs": "boolean", //true si activé,
+    "shortnews": "boolean", //true si activé,
+    "news": "boolean", //true si activé,
+    "stats": "boolean", //true si activé,
+    "comments": "boolean", //true si activé
+  },
+  "subs": [ //optionnel
+    {
+      "slug": "string",
+      "username": "string"
+    },
+    ...
+  ],
+  "shortnews": [ //optionnel
+    {
+      "at": "date sous la forme dd/mm/yyyy",
+      "picture": "string",
+      "id": "integer",
+      "title": "string"
+    },
+    ...
+  ],
+  "news": [  //optionnel
+    {
+      "at": "date sous la forme dd/mm/yyyy",
+      "picture": "string",
+      "id": "integer",
+      "title": "string"
+    },
+    ...
+  ],
+  "stats": {  //optionnel
+    "note": "string sous la forme note/10",
+    "count": "integer",
+    "percentage": {
+      "male": "integer",
+      "female": "integer"
+    }
+  },
+  "comments": [  //optionnel
+    {
+      "id": "integer",
+      "at": "date et heure sous la forme dd/mm/yyyy à hh:mm",
+      "author": {
+        "username": "string",
+        "avatar": "string",
+        "status": "string (peut être null)",
+        "slug": "string"
+      },
+      "content": {
+        "text": "string",
+        "html": "string"
+      }
+    },
+    ...
+  ]
 }
 ```
