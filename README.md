@@ -87,6 +87,7 @@ GET /event/:id
 | heure |  scheduled_at | |
 | personnalités | personalities | retourne un tableau des personnalités présentes à l'évènement *|
 | personnalite  |  personalities | retourne un tableau des personnalités présentes à l'évènement * |
+| description  |  description | retourne la description de l'évènement au format text et html * |
 
 *** la clé personalities retourne un tableau sous la forme de 
 ```json
@@ -99,6 +100,14 @@ GET /event/:id
       }
 	  ...
 ]
+```
+
+*** la clé description retourne un objet sous la forme de 
+```json
+{
+  "text": "string",
+  "html": "string"
+}
 ```
 
 REPONSE : json
@@ -534,10 +543,10 @@ GET /concert/:id
 | prix  |  price | |
 | adresse | address | |
 | heure |  scheduled_at | |
-| information | information | * retourne les informations du concert au format text et html|
+| information | information | * retourne les informations du concert au format text et html |
 | artiste | artist | * retourne un object de l'artiste présent |
 
-*** la clé information retourne un tableau sous la forme de 
+*** la clé information retourne un objet sous la forme de 
 ```json
 {
   "text": "string",
